@@ -66,7 +66,7 @@
 }
 
 body {
-    background: url('http://beta.vrnoaf.no/content/images/index.jpg') no-repeat center center fixed;
+    background: url('images/index.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

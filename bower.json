@@ -1,0 +1,26 @@
+{
+  "name": "vrnoaf",
+  "description": "packages for vrnoaf",
+  "main": [
+  "app/app.module.js",
+  ],
+  "authors": [
+    "Kristian Wannebo <kristianw87@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kristianw87/vrnoaf",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.6",
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}
