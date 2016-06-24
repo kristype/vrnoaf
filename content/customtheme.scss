@@ -1,0 +1,66 @@
+$font-stack: Helvetica, arial;
+$accent-color: #3867ad;
+$primary-color: #000000;
+$background-color: #f7f7f7;
+$font-color: #000000;
+$font-focus-color: #a6a6a6;
+
+body {
+  padding-top: 70px;
+  background: url('images/index.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+}
+
+.offset-right-20{
+  padding-left: 20px;
+}
+
+.content-container{
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: 2px;
+}
+
+.navbar-default {
+  background-color: $background-color;
+
+  .navbar-brand {
+    color: $font-color;
+  }
+
+  .navbar-brand:hover,
+  .navbar-brand:focus {
+    color: $font-color;
+    background-color: transparent;
+  }
+
+  .navbar-nav{
+    li{
+
+      a{
+        color: $font-color;
+        border-bottom: 2px;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+      }
+      a:hover, a:focus{
+        color: $accent-color;
+        border-bottom-color: $accent-color;
+      }
+    }
+  }
+
+  .navbar-toggle{
+    .icon-bar{
+      background-color: $primary-color;
+    }
+  }
+}
