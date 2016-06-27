@@ -1,66 +1,84 @@
-$font-stack: Helvetica, arial;
+$font-stack: Helvetica, Arial, sans-serif;
 $accent-color: #3867ad;
 $primary-color: #000000;
 $background-color: #f7f7f7;
 $font-color: #000000;
 $font-focus-color: #a6a6a6;
-
 body {
-  padding-top: 70px;
-  background: url('images/index.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+    background-color: $background-color;
+    font-family: $font-stack;
+    padding-top: 52px;
 }
-
+.about-image{
+  height: 150px;
+  background-image: url("/content/images/about.jpg");
+  background-color: transparent;
+  background-size: cover;
+  background-position: 30% 30%;
+  background-repeat: no-repeat;
+}
+.home-image{
+  height: 500px;
+  background-image: url("/content/images/index.jpg");
+  background-color: transparent;
+  background-size: cover;
+  background-position: 50% 80%;
+  background-repeat: no-repeat;
+}
+.content-container--home {
+    width: 85%;
+    margin: 0px auto;
+}
 .center {
     margin: auto;
     width: 50%;
 }
-
-.offset-right-20{
-  padding-left: 20px;
+.content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
 }
-
-.content-container{
-  padding: 20px;
-  background-color: $background-color;
-  border-radius: 2px;
+.content-colum {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.content-container {
+    width: 85%;
+    margin: 40px auto;
+    background-color: $background-color;
 }
 
 .navbar-default {
-  background-color: $background-color;
-
-  .navbar-brand {
-    color: $font-color;
-  }
-
-  .navbar-brand:hover,
-  .navbar-brand:focus {
-    color: $font-color;
-    background-color: transparent;
-  }
-
-  .navbar-nav{
-    li{
-
-      a{
+    background-color: $background-color;
+    .navbar-brand {
         color: $font-color;
-        border-bottom: 2px;
-        border-bottom-style: solid;
-        border-bottom-color: transparent;
-      }
-      a:hover, a:focus{
-        color: $accent-color;
-        border-bottom-color: $accent-color;
-      }
     }
-  }
-
-  .navbar-toggle{
-    .icon-bar{
-      background-color: $primary-color;
+    .navbar-brand:focus,
+    .navbar-brand:hover {
+        color: $font-color;
+        background-color: transparent;
     }
-  }
+    .navbar-nav {
+        li {
+            a {
+                color: $font-color;
+                border-bottom: 2px;
+                border-bottom-style: solid;
+                border-bottom-color: transparent;
+            }
+            a:focus,
+            a:hover {
+                color: $accent-color;
+                border-bottom-color: $accent-color;
+            }
+        }
+    }
+    .navbar-toggle {
+        .icon-bar {
+            background-color: $primary-color;
+        }
+    }
 }
