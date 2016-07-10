@@ -10,19 +10,18 @@ body {
     padding-top: 52px;
 }
 .about-image{
-  height: 150px;
+  height: 300px;
   background-image: url("/content/images/about.jpg");
-  background-color: transparent;
   background-size: cover;
-  background-position: 30% 30%;
+  background-position: 50% 30%;
   background-repeat: no-repeat;
 }
 .home-image{
-  height: 500px;
+  height: 800px;
   background-image: url("/content/images/index.jpg");
   background-color: transparent;
   background-size: cover;
-  background-position: 50% 80%;
+  background-position: 50% 100%;
   background-repeat: no-repeat;
 }
 .content-container--home {
