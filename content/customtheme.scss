@@ -21,39 +21,25 @@ body {
   background-image: url("/content/images/index.jpg");
   background-color: transparent;
   background-size: cover;
-  background-position: 50% 100%;
+  background-position: 70% 80%;
   background-repeat: no-repeat;
+}
+.home-header{
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  margin: 0px;
 }
 .content-container--home {
     width: 85%;
     margin: 0px auto;
 }
-.content-container--ts {
-    max-width: 1000px;
-    margin: 0px auto;
-}
-.center {
-    margin: auto;
-    width: 50%;
-}
-.content-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-.content-colum {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
 .content-container {
     width: 85%;
+    max-width: 1000px;
     margin: 40px auto;
     background-color: $background-color;
 }
-
 .navbar-default {
     background-color: $background-color;
     .navbar-brand {
