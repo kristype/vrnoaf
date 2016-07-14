@@ -2,13 +2,34 @@ $font-stack: Helvetica, Arial, sans-serif;
 $accent-color: #3867ad;
 $primary-color: #000000;
 $background-color: #f7f7f7;
-$font-color: #000000;
+$font-color: #333;
 $font-focus-color: #a6a6a6;
 body {
     background-color: $background-color;
+    color: $font-color;
     font-family: $font-stack;
-    padding-top: 52px;
+    padding-top: 53px;
+    margin: 0px;
 }
+@media (max-width: 434px)  { //Must be optimized
+  body {
+    padding-top: 101px;
+  }
+}
+
+p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
 .about-image{
   height: 300px;
   background-image: url("/content/images/about.jpg");
@@ -16,6 +37,7 @@ body {
   background-position: 50% 30%;
   background-repeat: no-repeat;
 }
+
 .home-image{
   height: 800px;
   background-image: url("/content/images/index.jpg");
@@ -24,50 +46,66 @@ body {
   background-position: 70% 80%;
   background-repeat: no-repeat;
 }
+
 .home-header{
-  display: flex;
-  justify-content: center;
+  width: 100%;
   padding-top: 30px;
-  margin: 0px;
+  margin: 0 auto;
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
 }
+
 .content-container--home {
     width: 85%;
     margin: 0px auto;
 }
+
 .content-container {
     width: 85%;
     max-width: 1000px;
     margin: 40px auto;
     background-color: $background-color;
 }
-.navbar-default {
-    background-color: $background-color;
-    .navbar-brand {
-        color: $font-color;
-    }
-    .navbar-brand:focus,
-    .navbar-brand:hover {
-        color: $font-color;
-        background-color: transparent;
-    }
-    .navbar-nav {
-        li {
-            a {
-                color: $font-color;
-                border-bottom: 2px;
-                border-bottom-style: solid;
-                border-bottom-color: transparent;
-            }
-            a:focus,
-            a:hover {
-                color: $accent-color;
-                border-bottom-color: $accent-color;
-            }
-        }
-    }
-    .navbar-toggle {
-        .icon-bar {
-            background-color: $primary-color;
-        }
-    }
+
+.site-header {
+  background-color: $background-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo {
+  text-decoration: none;
+  color: $font-color;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  padding: 10px;
+  padding-right: 20px;
+}
+
+.site-nav {
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    font-size: 16px;
+    padding: 18px;
+    display: inline-block;
+    text-decoration: none;
+    color: $font-color;
+  }
+  a:hover,
+  a:active {
+    background-color: darken($background-color, 40%);
+  }
 }
