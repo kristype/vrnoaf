@@ -4,6 +4,9 @@ $primary-color: #000000;
 $background-color: #f7f7f7;
 $font-color: #333;
 $font-focus-color: #a6a6a6;
+
+$media-mobile-max-width: 422px; //Must be optimized, sett opp regnestykke.
+
 body {
     background-color: $background-color;
     color: $font-color;
@@ -11,9 +14,9 @@ body {
     padding-top: 53px;
     margin: 0px;
 }
-@media (max-width: 434px)  { //Must be optimized
+@media (max-width: $media-mobile-max-width)  {
   body {
-    padding-top: 101px;
+    padding-top: 0px;
   }
 }
 
@@ -55,6 +58,11 @@ h2 {
   font-weight: 500;
   text-align: center;
 }
+@media (max-width: $media-mobile-max-width)  {
+  .home-header{
+    display: none;
+  }
+}
 
 .content-container--home {
     width: 85%;
@@ -78,6 +86,11 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+}
+@media (max-width: $media-mobile-max-width)  {
+  .site-header {
+    position: static;
+  }
 }
 
 .logo {
