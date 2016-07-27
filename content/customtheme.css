@@ -63,6 +63,13 @@ h2 {
   margin: 0px auto;
 }
 
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .content-container {
   width: 85%;
   max-width: 1000px;
