@@ -6,7 +6,7 @@ aboutController.$inject = ['dataService'];
 
 function aboutController(dataService) {
   var vm = this;
-  vm.aboutContent = { };
+  vm.aboutContent = '';
 
   dataService.getAboutContent().then(setAboutContent);
 
