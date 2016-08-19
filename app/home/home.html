@@ -1,13 +1,7 @@
 <div class="home-image">
-  <div class="content-container--home">
-      <h1 class="home-header">{{ vm.title }}</h1>
-      <!--
-      <div class="posts-container">
-        <div class"post-container" ng-repeat="post in vm.posts" >
-          <h2>{{post.title.rendered}}</h2>
-          <div ng-bind-html="post.content.rendered"></div>
-        </div>
-      </div>
-    -->
-  <div/>
+  <h1 class="home-header">{{ vm.title }}</h1>
 </div>
+
+<div class="content-container--home">
+  <div ng-include='"app/page/posts.html"'></div>
+<div/>

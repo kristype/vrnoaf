@@ -1,20 +1,20 @@
 angular
     .module('app')
-    .controller('homeController', homeController);
+    .controller('pageController', pageController);
 
-homeController.$inject = ['dataService', '$location'];
+pageController.$inject = ['dataService', '$routeParams', '$location'];
 
-function homeController(dataService, $location) {
+function pageController(dataService, $routeParams, $location) {
+  var page = $routeParams.page;
   var vm = this;
-  vm.title = 'Virtual Royal Norwegian Air Force';
   vm.posts = { };
   vm.nextPageExists = false;
 
   vm.nextPage = function() {
-    $location.url('/page/2');
+    var pageUrl = ['/page/', parseInt(page)+1]
+    $location.url(pageUrl.join(''));
   }
 
-  var page = 1;
   var getPostsPromise = dataService.getPosts(page);
   var checkNextPageExistsPromise = dataService.checkNextPageExists(page);
 

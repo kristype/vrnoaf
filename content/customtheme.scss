@@ -2,20 +2,34 @@ $font-stack: Helvetica, Arial, sans-serif;
 $accent-color: #3867ad;
 $primary-color: #000000;
 $background-color: #f7f7f7;
+$secondary-backround-color: #a6a6a6;
 $font-color: #333;
 $font-focus-color: #a6a6a6;
 
-$media-mobile-max-width: 422px; //Must be optimized, sett opp regnestykke.
+$media-mobile-max-width: 422px; //Must be optimized, sett opp regnestykke. JS?
 $navbar-mobile-height: 102px;
 $navbar-height: 53px;
 
-body {
-    background-color: $background-color;
-    color: $font-color;
-    font-family: $font-stack;
-    padding-top: $navbar-height;
-    margin: 0px;
+html{
+  height: 100%;
 }
+
+body {
+  height: 100%;
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+  background-color: $background-color;
+  color: $font-color;
+  font-family: $font-stack;
+  padding-top: $navbar-height;
+  box-sizing: border-box;
+}
+
+.layout {
+  height: 100%;
+}
+
 @media (max-width: $media-mobile-max-width)  {
   body {
     padding-top: 0px;
@@ -44,11 +58,12 @@ h2 {
 }
 
 .home-image{
-  height: 850px;
-  background-image: url("/content/images/index.jpg");
+  height: 300px;
+  //background-image: url("/content/images/index.jpg");
+  background-image: url("http://wp.vrnoaf.no/wp-content/uploads/2016/07/Screen_160712_010156.jpg");
   background-color: transparent;
   background-size: cover;
-  background-position: 70% 80%;
+  background-position: 50% 60%;
   background-repeat: no-repeat;
 }
 
@@ -61,6 +76,7 @@ h2 {
   text-align: center;
   letter-spacing: -2px;
 }
+
 @media (max-width: $media-mobile-max-width)  {
   .home-header{
     display: none;
@@ -73,13 +89,76 @@ h2 {
 }
 
 .posts-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .post-container {
+  margin-top: 20px;
+}
+
+.post-content {
+  overflow: auto;
+
+  figure {
+    margin: 0px;
+    overflow: auto;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+  }
+
+  .aligncenter {
+    display: table;
+    clear: both;
+    margin: 0 auto;
+
+  }
+
+  .alignright {
+    float: right;
+  }
+
+  .alignleft {
+    float: left;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .gallery-item {
+    margin: 8px 6px;
+  }
+
+  .wp-caption-text{
+    width: 100%;
+    padding-bottom: 16px;
+  }
+}
+
+.post-title {
+  flex: 1;
+  margin: 0;
+}
+
+.post-metadata {
+  font-size: 14px;
+}
+
+.post-header {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.post-footer {
 
 }
 
@@ -135,4 +214,22 @@ h2 {
   a:active {
     background-color: darken($background-color, 10%);
   }
+}
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.shell-content {
+  flex: 1;
+}
+
+.footer {
+  height: 40px;
+  margin-top: 20px;
+}
+
+.button--older-posts {
+
 }

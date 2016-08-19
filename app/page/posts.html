@@ -1,0 +1,13 @@
+<div class="posts-container">
+  <div class="post-container" ng-repeat="post in vm.posts">
+    <div class="post-header">
+      <h2 class="post-title">{{post.title}}</h2>
+      <div>
+        <div class="post-metadata" >{{post.author}}</div>
+        <time class="post-metadata" datetime="{{post.datetime}}">{{post.date}}</time>
+      </div>
+    </div>
+    <div class="post-content" ng-bind-html="post.content"></div>
+  </div>
+  <button class="button--older-posts" ng-show="vm.nextPageExists" ng-click="vm.nextPage()">Next page</button>
+</div>
