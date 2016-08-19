@@ -7,7 +7,7 @@ body {
   margin: 0;
   min-height: 100%;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: #e6e6e6;
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
   padding-top: 53px;
@@ -75,8 +75,14 @@ h2 {
   margin: 0px auto;
 }
 
-.post-container {
+.content {
   margin-top: 20px;
+  background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  overflow: auto;
 }
 
 .post-content {
@@ -123,6 +129,7 @@ h2 {
 .post-content .wp-caption-text {
   width: 100%;
   padding-bottom: 16px;
+  margin: 0;
 }
 
 .post-title {
@@ -135,7 +142,7 @@ h2 {
 }
 
 .post-header {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
 }
@@ -143,12 +150,12 @@ h2 {
 .content-container {
   width: 85%;
   max-width: 1000px;
-  margin: 40px auto;
-  background-color: #f7f7f7;
+  margin: 0px auto;
+  background-color: #e6e6e6;
 }
 
 .site-header {
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
@@ -192,7 +199,7 @@ h2 {
 
 .site-nav a:hover,
 .site-nav a:active {
-  background-color: #dedede;
+  background-color: #e6e6e6;
 }
 
 .shell {
