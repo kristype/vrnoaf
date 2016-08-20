@@ -51,8 +51,8 @@ function dataService($http, appConfig) {
             posts[index] = {
               content: entry.content.rendered,
               title: entry.title.rendered,
-              datetime: datetime.toLocaleString(),
-              date: datetime.toLocaleDateString(),
+              datetime: datetime.toString(),
+              date: getFormattedDate(datetime),
               author: getAuthor(authors, entry.author)
             };
           }
@@ -60,6 +60,16 @@ function dataService($http, appConfig) {
           return posts;
         });
     }
+  }
+
+  function getFormattedDate(date){
+
+    var day = ['0',date.getDate()].join('').slice(-2);
+    var month = ['0',date.getMonth()+1].join('').slice(-2);
+    var year = date.getFullYear();
+
+    var formattedDate = [day,'.', month,'.', year];
+    return formattedDate.join('');
   }
 
   function getAuthor(authors, authorId) {
