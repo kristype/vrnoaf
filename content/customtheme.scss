@@ -219,7 +219,7 @@ h2 {
   }
   a:hover,
   a:active {
-    background-color: darken($secondary-backround-color, 10%);
+    background-color: $background-color;
   }
 }
 .shell {
@@ -235,6 +235,7 @@ h2 {
 .footer {
   height: 40px;
   margin-top: 20px;
+  background-color: $secondary-backround-color;
 }
 
 .button--older-posts {
