@@ -2,9 +2,9 @@ angular
     .module('app')
     .factory('dataService', dataService);
 
-dataService.$inject = ['$http', 'appConfig'];
+dataService.$inject = ['$http', '$q', 'appConfig'];
 
-function dataService($http, appConfig) {
+function dataService($http, $q, appConfig) {
   var service =
   {
     getAboutContent: getAboutContent,
@@ -38,7 +38,7 @@ function dataService($http, appConfig) {
         .then(getPostsSuccess);
 
     function getPostsSuccess(response) {
-      return Promise.all([response, getAuthorsForPosts(response.data)])
+      return $q.all([response, getAuthorsForPosts(response.data)])
         .then(function convertPosts(results){
           var index;
           var rawPosts = results[0].data;
@@ -101,6 +101,6 @@ function dataService($http, appConfig) {
       authorsPromises.push(getAuthorPromise);
     });
 
-    return Promise.all(authorsPromises);
+    return $q.all(authorsPromises);
   }
 }
