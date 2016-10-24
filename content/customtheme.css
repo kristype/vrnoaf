@@ -83,6 +83,8 @@ h2 {
 
 .post-content {
   overflow: auto;
+  max-width: 840px;
+  margin: 0px auto;
 }
 
 .post-content figure {
