@@ -131,7 +131,7 @@ h2 {
   }
 
   .aligncenter {
-    display: table;
+
     clear: both;
     margin: 0 auto;
 
@@ -165,7 +165,7 @@ h2 {
 }
 
 .post-title {
-  flex: 1;
+  flex: 1 0 auto;
   margin: 0;
 }
 
@@ -195,6 +195,7 @@ h2 {
   top: 0;
   left: 0;
   width: 100%;
+  flex: 1 0 auto;
 }
 @media (max-width: $media-mobile-max-width)  {
   .site-header {
@@ -214,26 +215,30 @@ h2 {
 .logo-wrapper {
   padding-right: $logo-padding-right;
 }
+
 @media (max-width: $media-logowrapper-padding-remove-limit)  {
   .logo-wrapper {
-    flex: 1;
+    flex: 1 0 auto;
     padding-right: 0px;
   }
 }
 
 .logo-container {
   display: flex;
+  height: 54px;  //IE11
+
   text-decoration: none;
+  align-items: center;
 }
 
 .logo {
   margin: auto 0px;
   padding-left: 20px;
   height: 45px;
+  width: 45px;
 }
 
 .logo-text {
-  text-decoration: none;
   color: $font-color;
   font-size: 24px;
   text-transform: uppercase;
@@ -272,6 +277,7 @@ h2 {
 
 .shell-content {
   flex: 1 0 auto;
+  min-height: 1px; //IE11
 }
 
 .footer {
