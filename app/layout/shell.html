@@ -1,7 +1,28 @@
 <div class="shell">
+
   <header class="site-header">
-    <div ng-include='"app/layout/topnav.html"'></div>
+    <div class="nav-container">
+      <div class="logo-wrapper">
+          <a href="#/" class="logo-container">
+            <img class="logo" src="/content/images/vrnoaf_roundel_notext.svg" />
+            <p class="logo-text" >vRNoAF</p>
+          </a>
+      </div>
+
+      <nav class="site-nav" >
+        <ul>
+          <li><a href="#/about">Om oss</a></li>
+          <li><a href="#/ts">TeamSpeak</a></li>
+          <li><a href="http://forum.vrnoaf.no">Forum</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
   <div class="shell-content" ng-view></div>
-  <div ng-include='"app/layout/footer.html"'></div>
+
+  <footer class="footer">
+
+  </footer>
+
 </div>
