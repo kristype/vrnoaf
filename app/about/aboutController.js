@@ -2,13 +2,13 @@ angular
     .module('app')
     .controller('aboutController', aboutController);
 
-aboutController.$inject = ['dataService'];
+aboutController.$inject = ['dataService', 'appConfig'];
 
-function aboutController(dataService) {
+function aboutController(dataService, appConfig) {
   var vm = this;
   vm.aboutContent = '';
 
-  dataService.getAboutContent().then(setAboutContent);
+  dataService.getPageContent(appConfig.aboutContentPageId).then(setAboutContent);
 
   function setAboutContent(data){
     vm.aboutContent = data;

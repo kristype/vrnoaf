@@ -7,15 +7,15 @@ dataService.$inject = ['$http', '$q', 'appConfig'];
 function dataService($http, $q, appConfig) {
   var service =
   {
-    getAboutContent: getAboutContent,
+    getPageContent: getPageContent,
     getPosts: getPosts,
     checkNextPageExists: checkNextPageExists
   };
   return service;
 
-  function getAboutContent() {
-    var aboutContentUrl = [appConfig.wpApiUrl, 'pages/', appConfig.aboutContentPageId]
-    return $http({method: 'GET', url: aboutContentUrl.join('')} )
+  function getPageContent(pageId) {
+    var pageContentUrl = [appConfig.wpApiUrl, 'pages/', pageId]
+    return $http({method: 'GET', url: pageContentUrl.join('')} )
         .then(successCallback);
 
     function successCallback(response) {
