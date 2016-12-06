@@ -165,7 +165,7 @@ h2 {
 }
 
 .post-title {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   margin: 0;
 }
 
@@ -195,7 +195,6 @@ h2 {
   top: 0;
   left: 0;
   width: 100%;
-  flex: 1 0 auto;
 }
 @media (max-width: $media-mobile-max-width)  {
   .site-header {
@@ -284,6 +283,7 @@ h2 {
   height: 40px;
   margin-top: 20px;
   background-color: $secondary-backround-color;
+  flex: 0 0 auto;
 }
 
 .button--older-posts {
