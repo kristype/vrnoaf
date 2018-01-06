@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  wpApiUrl: 'http://wp.vrnoaf.no/wp-json/wp/v2/',
+  postsPerPage: 5,
+  aboutContentPageId: 16,
+  tsContentPageId: 18,
 };
