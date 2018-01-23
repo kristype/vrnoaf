@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Post } from '../model/post';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +10,9 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
-  posts: Post[] = [];
-  nextPageExists = false;
-
-  constructor(private dataService: DataService) { }
+  constructor() { }
 
   ngOnInit() {
-   // this.dataService.checkNextPageExists(1).subscribe(r => this.nextPageExists = r);
-    this.dataService.getPosts(1).subscribe(r => this.posts = r);
   }
 
-  nextPage(): void {
-
-  }
 }

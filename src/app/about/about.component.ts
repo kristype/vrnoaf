@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DataService } from '../data.service';
-import { environment } from '../../environments/environment.prod';
+import { DataService } from '../services/data.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-about',
@@ -13,14 +13,9 @@ export class AboutComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  aboutContent;
+  aboutContent: string;
 
   ngOnInit() {
-    this.getAboutContent();
-  }
-
-
-  private getAboutContent() {
     this.dataService.getPageContent(environment.aboutContentPageId).subscribe(r => this.aboutContent = r);
   }
 }

@@ -9,15 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { PageComponent } from './page/page.component';
 import { TeamspeakComponent } from './teamspeak/teamspeak.component';
-import { DataService } from './data.service';
-import { MessageService } from './message.service';
+import { DataService } from './services/data.service';
+import { MessageService } from './services/message.service';
 import { MessagesComponent } from './messages/messages.component';
-
-
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PostsComponent,
     HomeComponent,
     AboutComponent,
     PageComponent,

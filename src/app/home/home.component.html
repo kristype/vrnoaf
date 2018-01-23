@@ -3,17 +3,5 @@
 </div>
 
 <div class="content-container">
-  <div class="posts-container">
-    <div class="content" *ngFor="let post of posts">
-      <div class="post-header">
-        <h2 class="post-title">{{post.title}}</h2>
-        <div>
-          <div class="post-metadata" >{{post.author}}</div>
-          <time class="post-metadata" datetime="post.datetime">{{post.dateFormatted}}</time>
-        </div>
-      </div>
-      <div class="post-content" [innerHTML]="post.content"></div>
-    </div>
-    <button class="button--older-posts" *ngIf="nextPageExists" (click)="nextPage()">Next page</button>
-  </div>
+  <app-posts [page]="1"></app-posts>
 </div>

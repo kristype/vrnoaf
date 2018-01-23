@@ -1,0 +1,15 @@
+$font-stack: 'Lato', sans-serif;
+$accent-color: #3867ad;
+$primary-color: #000000;
+$secondary-backround-color: #ffffff;
+$background-color: darken($secondary-backround-color, 10%);
+$font-color: #333;
+$header-font-color: darken($font-color, 10%);
+$font-focus-color: #a6a6a6;
+
+$content-max-width: 1000px;
+$media-mobile-max-width: 482px; //Must be optimized, sett opp regnestykke. JS?
+$logo-padding-right: 40px;
+$media-logowrapper-padding-remove-limit: $media-mobile-max-width + $logo-padding-right;
+$navbar-mobile-height: 102px;
+$navbar-height: 53px;
