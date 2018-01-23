@@ -33,8 +33,9 @@ export class DataService {
   getPageContent(pageId: number): Observable<string> {
     const pageContentUrl = environment.wpApiUrl + 'pages/' + pageId;
     return this.httpClient.get<ContentPage>(pageContentUrl)
-      .pipe(tap(r => this.log('fetched page ' + pageId)),
-      catchError(this.handleError('getPage ' + pageId, { content: { rendered: 'Page content not found' } })))
+      .pipe(
+          tap(r => this.log('fetched page ' + pageId)),
+          catchError(this.handleError('getPage ' + pageId, { content: { rendered: 'Page content not found' } })))
       .map(v => v.content.rendered);
   }
 
@@ -43,17 +44,19 @@ export class DataService {
     const request = 'posts?page=' + peekPost + '&per_page=1';
     const postsUrl = environment.wpApiUrl + request;
     return this.httpClient.get<ContentPage[]>(postsUrl)
-      .pipe(tap(r => this.log('peeked for page ' + peekPost)),
-      catchError(this.handleError(request, [])))
+      .pipe(
+          tap(r => this.log('peeked for post ' + peekPost)),
+          catchError(this.handleError(request, [])))
       .map(r => r.length > 0);
   }
 
   getPosts(page: number): Observable<Post[]> {
     const postsUrl = environment.wpApiUrl + 'posts?page=' + page + '&per_page=' + environment.postsPerPage;
     return this.httpClient.get<ContentPage[]>(postsUrl)
-    .pipe(tap(r => this.log(`fetched posts from ${page}`)),
-    catchError(this.handleError<ContentPage[]>(postsUrl, [])))
-      .flatMap(cp => {
+    .pipe(
+        tap(r => this.log(`fetched posts from ${page}`)),
+        catchError(this.handleError<ContentPage[]>(postsUrl, [])))
+    .flatMap(cp => {
         let ids = Array.from(new Set(cp.map(c => c.author)));
         let map = new Map<number, Observable<string>>();
         ids.forEach(v => map.set(v, this.getAuthor(v)));
@@ -70,9 +73,12 @@ export class DataService {
   getAuthor(authorId: number): Observable<string> {
     let authorUrl = `${environment.wpApiUrl}users/${authorId}`;
     return this.httpClient.get<User>(authorUrl)
-    .pipe(tap(r => this.log(`fetched username for user ${authorId}`)),
-    catchError(this.handleError<User>(authorUrl, new User())))
-    .map(u => u.name).publishReplay(1).refCount();
+    .pipe(
+      tap(r => this.log(`fetched username for user ${authorId}`)),
+      catchError(this.handleError<User>(authorUrl, new User())))
+    .map(u => u.name)
+    .publishReplay(1)
+    .refCount();
   }
 
   /**
