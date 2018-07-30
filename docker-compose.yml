@@ -1,0 +1,90 @@
+version: '3'
+
+services:
+
+  reverseProxy:
+    container_name: 'reverseproxy'
+    image: 'reverseproxy'
+    build:
+      context: ./reverseProxy
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - vrnoaf-network
+
+  frontend:
+    container_name: 'frontend'
+    image: 'frontend'
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    networks:
+      - vrnoaf-network
+  
+  wordpressdb:
+    container_name: 'wordpressdb'
+    image: mariadb:latest
+    volumes:
+      - wpdb-volume:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=mariawunderbar
+      - MYSQL_DATABASE=wordpress
+    networks:
+      - vrnoaf-network
+
+  wordpress:
+    container_name: 'wordpress'
+    image: wordpress:latest
+    links:
+      - wordpressdb:mysql
+    volumes:
+      - wp-volume:/var/www/html
+    environment:
+      - WORDPRESS_DB_PASSWORD=mariawunderbar
+    networks:
+      - vrnoaf-network
+
+  teamspeak:
+    image: teamspeak:latest
+    restart: always
+    ports:
+      - 9987:9987/udp
+      - 10011:10011
+      - 30033:30033
+    environment:
+      TS3SERVER_DB_PLUGIN: ts3db_mariadb
+      TS3SERVER_DB_SQLCREATEPATH: create_mariadb
+      TS3SERVER_DB_HOST: tsdb
+      TS3SERVER_DB_USER: root
+      TS3SERVER_DB_PASSWORD: mariawunderbar
+      TS3SERVER_DB_NAME: teamspeak
+      TS3SERVER_DB_WAITUNTILREADY: 30
+      TS3SERVER_LICENSE: accept
+    volumes:
+      - ts-volume:/var/ts3server/
+    networks:
+      - ts-network
+
+  tsdb:
+    container_name: 'tsdb'
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=mariawunderbar
+      - MYSQL_DATABASE=teamspeak
+    volumes:
+      - tsdb-volume:/var/lib/mysql
+    networks:
+      - ts-network
+
+volumes:
+  ts-volume:
+  tsdb-volume:
+  wpdb-volume:
+  wp-volume:
+
+networks:
+  vrnoaf-network:
+    driver: bridge
+  ts-network:
+    driver: bridge
