@@ -9,7 +9,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - WP_ENDPOINT=http://xxxx:5050/wp-json/wp/v2/
+        - WP_ENDPOINT=xxxx:5050
 
   wordpress:
     ports:

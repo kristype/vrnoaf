@@ -17,4 +17,4 @@ services:
   frontend:
     build:
       args:
-        - WP_ENDPOINT=http://wp.vrnoaf.no/wp-json/wp/v2/
+        - WP_ENDPOINT=wp\.vrnoaf\.no
