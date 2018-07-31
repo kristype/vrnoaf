@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  frontend:
+    ports:
+      - "80:80"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - WP_ENDPOINT=http://xxxx:5050/wp-json/wp/v2/
+
+  wordpress:
+    ports:
+      - "5050:80"
