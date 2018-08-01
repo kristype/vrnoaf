@@ -1,4 +1,4 @@
-docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d
 
 Staging:
 
@@ -12,7 +12,7 @@ certonly --webroot \
 --register-unsafely-without-email --agree-tos \
 --webroot-path=/data/letsencrypt \
 --staging \
--d vrnaof.no -d www.vrnoaf.no -d ts.vrnoaf.no -d admin.vrnoaf.no -d wp.vrnoaf.no
+-d beta.vrnaof.no -d betawp.vrnoaf.no
 
 sudo docker run --rm -it --name certbot \
 -v letsencrypt-volume:/etc/letsencrypt \
@@ -23,7 +23,7 @@ certbot/certbot \
 certificates
 
 Cleanup:
-docker-compose -f docker-compose.yml -f docker-compose.production.yml down
+docker-compose -f docker-compose.yml -f docker-compose.qa.yml down
 docker volume prune
 
 Production:
@@ -37,7 +37,7 @@ certbot/certbot \
 certonly --webroot \
 --email x@gmail.com --agree-tos --no-eff-email \
 --webroot-path=/data/letsencrypt \
--d vrnaof.no -d www.vrnoaf.no -d ts.vrnoaf.no -d admin.vrnoaf.no -d wp.vrnoaf.no
+-d beta.vrnaof.no -d betawp.vrnoaf.no
 
 Renew in production:
 

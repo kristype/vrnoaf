@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  reverseProxy:
+    container_name: 'reverseproxy'
+    image: 'reverseproxy'
+    restart: always
+    build:
+      context: ./reverseProxy
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes: 
+      acme-challenge-volume:/data/letsencrypt
+      letsencryptetc-volume:/etc/letsencrypt
+      dhparam-volume:/data/dhparam
+    networks:
+      - vrnoaf-network
+
+  frontend:
+    build:
+      args:
+        - WP_ENDPOINT=betawp\.vrnoaf\.no
+
+volumes:
+  acme-challenge-volume:
+  letsencryptetc-volume:
+  dhparam-volume:
+  #For persisting data used in scripts
+  letsencryptlib-volume:
+  #For inspecting logs
+  letsencryptlog-volume:
