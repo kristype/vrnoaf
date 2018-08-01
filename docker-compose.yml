@@ -19,7 +19,7 @@ services:
       - wpdb-volume:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=mariawunderbar
-      #- MYSQL_DATABASE=wordpress only used when starting from scratch
+      - MYSQL_DATABASE=wordpress
     networks:
       - vrnoaf-network
 

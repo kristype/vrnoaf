@@ -9,12 +9,26 @@ services:
     build:
       context: ./reverseProxy
       dockerfile: Dockerfile
-    networks:
-      - vrnoaf-network
     ports:
       - "80:80"
+      - "443:443"
+    volumes: 
+      acme-challenge-volume:/data/letsencrypt
+      letsencryptetc-volume:/etc/letsencrypt
+      dhparam-volume:/data/dhparam
+    networks:
+      - vrnoaf-network
 
   frontend:
     build:
       args:
         - WP_ENDPOINT=wp\.vrnoaf\.no
+
+volumes:
+  acme-challenge-volume:
+  letsencryptetc-volume:
+  dhparam-volume:
+  #For persisting data used in scripts
+  letsencryptlib-volume:
+  #For inspecting logs
+  letsencryptlog-volume:
