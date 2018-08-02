@@ -18,6 +18,9 @@ services:
       - dhparam-volume:/data/dhparam
     networks:
       - vrnoaf-network
+    depends_on:
+      - frontend
+      - wordpress
 
   frontend:
     build:
