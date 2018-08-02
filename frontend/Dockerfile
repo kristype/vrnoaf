@@ -18,7 +18,7 @@ COPY . .
 
 RUN echo "Endpoint -> $WP_ENDPOINT"
 
-RUN sed -i "s/\(.*wpApiUrl: 'http:\/\/\).*\(\/wp-json\/wp\/v2\/',\)/\1$WP_ENDPOINT\2/" src/environments/environment.prod.ts
+RUN sed -i "s/\(.*wpApiUrl: 'https:\/\/\).*\(\/wp-json\/wp\/v2\/',\)/\1$WP_ENDPOINT\2/" src/environments/environment.prod.ts
 
 ## Build the angular app in production mode and store the artifacts in dist folder
 RUN $(npm bin)/ng build --prod --build-optimizer

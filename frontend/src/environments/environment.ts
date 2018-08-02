@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  wpApiUrl: 'http://localhost:5040/wp-json/wp/v2/',
+  wpApiUrl: 'https://localhost:5040/wp-json/wp/v2/',
   postsPerPage: 5,
   aboutContentPageId: 16,
   tsContentPageId: 18,
