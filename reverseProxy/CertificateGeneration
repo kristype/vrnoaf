@@ -12,7 +12,7 @@ certonly --webroot \
 --register-unsafely-without-email --agree-tos \
 --webroot-path=/data/letsencrypt \
 --staging \
--d vrnaof.no -d www.vrnoaf.no -d ts.vrnoaf.no -d admin.vrnoaf.no -d wp.vrnoaf.no
+-d vrnoaf.no -d www.vrnoaf.no -d ts.vrnoaf.no -d admin.vrnoaf.no -d wp.vrnoaf.no
 
 sudo docker run --rm -it --name certbot \
 -v vrnoaf_letsencryptetc-volume:/etc/letsencrypt \
@@ -37,14 +37,14 @@ certbot/certbot \
 certonly --webroot \
 --email x@gmail.com --agree-tos --no-eff-email \
 --webroot-path=/data/letsencrypt \
--d vrnaof.no -d www.vrnoaf.no -d ts.vrnoaf.no -d admin.vrnoaf.no -d wp.vrnoaf.no
+-d vrnoaf.no -d www.vrnoaf.no -d ts.vrnoaf.no -d admin.vrnoaf.no -d wp.vrnoaf.no
 
 Renew in production:
 
 docker run --rm -it --name dhparam -v vrnoaf_dhparam-volume:/data/dhparam frapsoft/openssl dhparam -out /data/dhparam/dhparam-2048.pem 2048
 
-docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.production.yml -f docker-compose.ts.yml up -d
 
-sudo crontab -e
-0 23 * * * docker run --rm -it --name certbot -v vrnoaf_letsencryptetc-volume:/etc/letsencrypt -v vrnoaf_letsencryptlib-volume:/var/lib/letsencrypt -v vrnoaf_acme-challenge-volume:/data/letsencrypt -v vrnoaf_letsencryptlog-volume:/var/log/letsencrypt certbot/certbot renew --webroot -w /data/letsencrypt --quiet && docker kill --signal=HUP production-nginx-container
+sudo (crontab -l ; echo "0 23 * * * docker run --rm -it --name certbot -v vrnoaf_letsencryptetc-volume:/etc/letsencrypt -v vrnoaf_letsencryptlib-volume:/var/lib/letsencrypt -v vrnoaf_acme-challenge-volume:/data/letsencrypt -v vrnoaf_letsencryptlog-volume:/var/log/letsencrypt certbot/certbot renew --webroot -w /data/letsencrypt --quiet && docker kill --signal=HUP reverseproxy")| crontab -
+
 
