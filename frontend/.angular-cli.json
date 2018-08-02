@@ -60,6 +60,11 @@
     }
   },
   "defaults": {
+    "serve": {
+      "port": 4200,
+      "host": "0.0.0.0"
+    },
+    "poll": 1000,
     "styleExt": "scss",
     "component": {}
   }
