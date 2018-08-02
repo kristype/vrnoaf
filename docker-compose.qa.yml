@@ -2,13 +2,13 @@ version: '3'
 
 services:
 
-  reverseProxy:
-    container_name: 'reverseproxy'
-    image: 'reverseproxy'
+  reverseProxyQa:
+    container_name: 'reverseproxyqa'
+    image: 'reverseproxyqa'
     restart: always
     build:
       context: ./reverseProxy
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.qa
     ports:
       - "80:80"
       - "443:443"

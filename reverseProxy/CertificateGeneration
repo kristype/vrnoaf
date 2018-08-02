@@ -1,4 +1,4 @@
-docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
+docker run -v vrnoaf_acme-challenge-volume:/data/letsencrypt -p 80:80 --name acme acme-challenge
 
 Staging:
 
@@ -15,9 +15,9 @@ certonly --webroot \
 -d vrnaof.no -d www.vrnoaf.no -d ts.vrnoaf.no -d admin.vrnoaf.no -d wp.vrnoaf.no
 
 sudo docker run --rm -it --name certbot \
--v letsencrypt-volume:/etc/letsencrypt \
--v letsencryptlib-volume:/var/lib/letsencrypt \
--v vrnoaf_certbot-volume:/data/letsencrypt \
+-v vrnoaf_letsencryptetc-volume:/etc/letsencrypt \
+-v vrnoaf_letsencryptlib-volume:/var/lib/letsencrypt \
+-v vrnoaf_acme-challenge-volume:/data/letsencrypt \
 certbot/certbot \
 --staging \
 certificates
@@ -42,6 +42,8 @@ certonly --webroot \
 Renew in production:
 
 docker run --rm -it --name dhparam -v vrnoaf_dhparam-volume:/data/dhparam frapsoft/openssl dhparam -out /data/dhparam/dhparam-2048.pem 2048
+
+docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
 
 sudo crontab -e
 0 23 * * * docker run --rm -it --name certbot -v vrnoaf_letsencryptetc-volume:/etc/letsencrypt -v vrnoaf_letsencryptlib-volume:/var/lib/letsencrypt -v vrnoaf_acme-challenge-volume:/data/letsencrypt -v vrnoaf_letsencryptlog-volume:/var/log/letsencrypt certbot/certbot renew --webroot -w /data/letsencrypt --quiet && docker kill --signal=HUP production-nginx-container
