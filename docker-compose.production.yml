@@ -4,11 +4,8 @@ services:
 
   reverseProxy:
     container_name: 'reverseproxy'
-    image: 'reverseproxy'
+    image: 'kristianw87/vrnoaf-reverseproxy:latest'
     restart: always
-    build:
-      context: ./reverseProxy
-      dockerfile: Dockerfile
     ports:
       - "80:80"
       - "443:443"
@@ -23,9 +20,10 @@ services:
       - wordpress
 
   frontend:
-    build:
-      args:
-        - WP_ENDPOINT=wp\.vrnoaf\.no
+    image: 'kristianw87/vrnoaf-frontend:latest'
+    #build:
+    #  args:
+    #    - WP_ENDPOINT=wp\.vrnoaf\.no
 
 volumes:
   acme-challenge-volume:
