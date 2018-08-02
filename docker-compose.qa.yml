@@ -13,9 +13,9 @@ services:
       - "80:80"
       - "443:443"
     volumes: 
-      acme-challenge-volume:/data/letsencrypt
-      letsencryptetc-volume:/etc/letsencrypt
-      dhparam-volume:/data/dhparam
+      - acme-challenge-volume:/data/letsencrypt
+      - letsencryptetc-volume:/etc/letsencrypt
+      - dhparam-volume:/data/dhparam
     networks:
       - vrnoaf-network
 
