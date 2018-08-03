@@ -5,18 +5,15 @@ export class MessageService {
   messages: string[] = [];
 
   add(message: string) {
-    console.log(message);
-    this.messages.push(message);
+    //console.log(message);
+    //this.messages.push(message);
+  }
+
+  error(message: string) {
+    //console.message(message);
   }
 
   clear() {
-    this.messages = [];
+    //this.messages = [];
   }
 }
-
-
-/*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
