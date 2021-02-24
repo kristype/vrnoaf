@@ -2,11 +2,9 @@
 author: Kristype
 date: '2021-02-24T00:00:00Z'
 banner: /Images/about.jpg
+header: Om oss
 ---
-
-# Om oss
-
-Les mer om oss her
+Vi spiller FalconBMS, DCS og MSFS
 
 ## DCS
 
