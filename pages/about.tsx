@@ -1,4 +1,4 @@
-import { usePlugin } from "tinacms";
+import { usePlugin, FormOptions, Field, ImageField } from "tinacms";
 import {
   useGithubMarkdownForm,
   useGithubToolbarPlugins,
@@ -7,18 +7,26 @@ import ReactMarkdown from "react-markdown";
 import { getGithubPreviewProps, parseMarkdown } from "next-tinacms-github";
 import { GetStaticProps } from "next";
 import Image from "next/image";
+import { ImageProps } from "react-tinacms-editor/dist/src/types";
 
 export default function About({ file }) {
-  const formOptions = {
+  const imageField: Field & ImageProps = {
+    label: "banner",
+    name: "frontmatter.banner",
+    component: "image",
+    parse: (media) => `/content/assets/${media.filename}`,
+    uploadDir: () => "/content/assets/",
+    previewSrc: (fullSrc) => fullSrc,
+  };
+  const [data, form] = useGithubMarkdownForm(file, {
     label: "About Page",
     fields: [
-      { name: "frontmatter.author", component: "text" },
-      { name: "frontmatter.date", component: "date" },
-      { name: "frontmatter.banner", component: "image" },
+      { label: "Author", name: "frontmatter.author", component: "text" },
+      { label: "Dato", name: "frontmatter.date", component: "date" },
+      imageField,
       { name: "markdownBody", component: "markdown" },
     ],
-  };
-  const [data, form] = useGithubMarkdownForm(file, formOptions);
+  });
 
   usePlugin(form);
   useGithubToolbarPlugins();

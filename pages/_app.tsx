@@ -7,6 +7,8 @@ import {
   TinacmsGithubProvider,
   GithubMediaStore,
 } from "react-tinacms-github";
+import { HtmlFieldPlugin, MarkdownFieldPlugin } from "react-tinacms-editor";
+import { DateFieldPlugin } from "react-tinacms-date";
 
 export default class Site extends App {
   cms: TinaCMS;
@@ -43,6 +45,10 @@ export default class Site extends App {
       sidebar: props.pageProps.preview,
       toolbar: props.pageProps.preview,
     });
+
+    this.cms.plugins.add(HtmlFieldPlugin);
+    this.cms.plugins.add(MarkdownFieldPlugin);
+    this.cms.plugins.add(DateFieldPlugin);
   }
 
   render() {
