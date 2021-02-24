@@ -11,11 +11,11 @@ import { ImageProps } from "react-tinacms-editor/dist/src/types";
 
 export default function About({ file }) {
   const imageField: Field & ImageProps = {
-    label: "banner",
+    label: "Banner image",
     name: "frontmatter.banner",
     component: "image",
-    parse: (media) => `/content/assets/${media.filename}`,
-    uploadDir: () => "/content/assets/",
+    parse: (media) => `/static/${media.filename}`,
+    uploadDir: () => "/public/static/",
     previewSrc: (fullSrc) => fullSrc,
   };
   const [data, form] = useGithubMarkdownForm(file, {
