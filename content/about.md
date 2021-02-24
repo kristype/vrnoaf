@@ -1,7 +1,7 @@
 ---
 author: Kristype
-date: 2021/02/24
-banner:
+date: '2021-02-24T00:00:00Z'
+banner: /Images/about.jpg
 ---
 
 # Om oss
