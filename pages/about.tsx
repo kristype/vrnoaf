@@ -8,6 +8,7 @@ import { getGithubPreviewProps, parseMarkdown } from "next-tinacms-github";
 import { GetStaticProps } from "next";
 import Image from "next/image";
 import { ImageProps } from "react-tinacms-editor/dist/src/types";
+import styles from "../styles/About.module.css";
 
 export default function About({ file }) {
   const imageField: Field & ImageProps = {
@@ -23,8 +24,9 @@ export default function About({ file }) {
     fields: [
       { label: "Author", name: "frontmatter.author", component: "text" },
       { label: "Dato", name: "frontmatter.date", component: "date" },
+      { label: "Header", name: "frontmatter.header", component: "text" },
       imageField,
-      { name: "markdownBody", component: "markdown" },
+      {  label: "Content", name: "markdownBody", component: "markdown" },
     ],
   });
 
@@ -32,11 +34,22 @@ export default function About({ file }) {
   useGithubToolbarPlugins();
 
   return (
-    <div>
-      {data.frontmatter.banner ? (
-        <Image width="auto" height="auto" src={data.frontmatter.banner}></Image>
-      ) : null}
-      <ReactMarkdown>{data.markdownBody}</ReactMarkdown>
+    <div className={styles.pageLayout}>
+      <div className={styles.bannerContainer}>
+        {data.frontmatter.banner ? (
+          <Image
+            priority={true}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="100% 30%"
+            src={data.frontmatter.banner}
+          ></Image>
+        ) : null}
+      </div>
+      <h1 className={styles.bannerTitle}>{data.frontmatter.header}</h1>
+      <div className={styles.content}>
+        <ReactMarkdown>{data.markdownBody}</ReactMarkdown>
+      </div>
     </div>
   );
 }
