@@ -1,4 +1,5 @@
 {
   "title": "VRNoAF",
-  "banner": "/static/home.jpg"
+  "banner": "/static/home.jpg",
+  "logo": "/static/vrnoaf_logo_camo.svg"
 }
