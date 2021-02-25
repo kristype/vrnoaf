@@ -1,0 +1,82 @@
+.logoWrapper {
+  padding-right: var(--logo-padding-right);
+}
+
+.logoContainer {
+  display: flex;
+  height: 54px;
+
+  text-decoration: none;
+  align-items: center;
+}
+
+.logoText {
+  color: black;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  padding-left: 5px;
+  padding-right: 20px;
+  display: inline-block;
+  text-decoration: none;
+  margin: auto 0px;
+}
+
+.siteHeader {
+  background-color: var(--secondary-backround-color);
+  /* position: fixed; */
+  /* top: 0;
+  left: 0; */
+  width: 100%;
+}
+@media (max-width: 450px) {
+  .siteHeader {
+    position: static;
+  }
+}
+
+.navContainer {
+  max-width: var(--content-max-width);
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.siteNav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.siteNav a {
+  font-size: 16px;
+  padding: 18px;
+  display: inline-block;
+  text-decoration: none;
+  color: --font-color;
+}
+.siteNav a:hover,
+.siteNav a:active {
+  background-color: --background-color;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.shellContent {
+  flex: 1 0 auto;
+  min-height: 1px;
+  height: 100%;
+}
+
+.footer {
+  height: 40px;
+  margin-top: 20px;
+  background-color: var(--secondary-backround-color);
+  flex: 0 0 auto;
+}

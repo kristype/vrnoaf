@@ -1,82 +1,64 @@
-import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
-import { GetStaticProps } from "next";
-import { usePlugin } from "tinacms";
+import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
+import { GetStaticProps } from 'next';
+import { usePlugin } from 'tinacms';
 import {
   useGithubJsonForm,
   useGithubToolbarPlugins,
-} from "react-tinacms-github";
+} from 'react-tinacms-github';
 
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head';
+import Image from 'next/image';
+
+import styles from '../styles/Home.module.css';
+import { createImageField } from '../commons/imageFieldResolver';
+import Layout from '../components/Layout';
 
 export default function Home({ file }) {
   const formOptions = {
-    label: "Home Page",
-    fields: [{ name: "title", component: "text" }],
+    label: 'Home Page',
+    fields: [
+      { label: 'Header', name: 'title', component: 'text' },
+      createImageField('Logo', 'logo'),
+      createImageField('Banner image', 'banner'),
+    ],
   };
 
-  // Registers a JSON Tina Form
   const [data, form] = useGithubJsonForm(file, formOptions);
   usePlugin(form);
   useGithubToolbarPlugins();
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
-        <title>Create Next App</title>
+        <title>VRNoAF</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>{data.title}</h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      <div className={styles.pageLayout}>
+        {data.logo ? (
+          <div className={styles.logoContainer}>
+            <Image
+              priority={true}
+              layout="fill"
+              objectFit="contain"
+              src={data.logo}
+            ></Image>
+          </div>
+        ) : null}
+        {data.banner ? (
+          <div className={styles.bannerContainer}>
+            <Image
+              priority={true}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="50% 50%"
+              src={data.banner}
+            ></Image>
+          </div>
+        ) : null}
+        <h1 className={styles.bannerTitle}>{data.header}</h1>
+      </div>
+    </Layout>
   );
 }
 
@@ -87,7 +69,7 @@ export const getStaticProps: GetStaticProps = async function ({
   if (preview) {
     return getGithubPreviewProps({
       ...previewData,
-      fileRelativePath: "content/home.json",
+      fileRelativePath: 'content/home.json',
       parse: parseJson,
     });
   }
@@ -97,8 +79,8 @@ export const getStaticProps: GetStaticProps = async function ({
       error: null,
       preview: false,
       file: {
-        fileRelativePath: "content/home.json",
-        data: (await import("../content/home.json")).default,
+        fileRelativePath: 'content/home.json',
+        data: (await import('../content/home.json')).default,
       },
     },
   };
