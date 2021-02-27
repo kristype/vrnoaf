@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/Layout.module.css';
+import styles from './Layout.module.css';
 
 export default function Layout({ children }) {
   return (
@@ -11,7 +11,7 @@ export default function Layout({ children }) {
             <Link href="/">
               <a className={styles.logoContainer}>
                 <Image
-                  src="/static/vrnoaf_roundel_notext_camo.svg"
+                  src="/static/roundel_notext_camo.svg"
                   layout="fixed"
                   height="45"
                   width="45"
@@ -24,21 +24,14 @@ export default function Layout({ children }) {
             <ul>
               <li>
                 <Link href="/about">
-                  <a>
-                    {/* <span>
-                      <i className="fa fa-fighter-jet" aria-hidden="true"></i>
-                    </span> */}
-                    Om oss
-                  </a>
+                  <a>Om oss</a>
                 </Link>
               </li>
               <li>
-                <a href="https://www.facebook.com/groups/vRNoAF/">
-                  <span>
-                    <i className="fa fa-facebook-square" aria-hidden="true"></i>
-                  </span>
-                  Facebook
-                </a>
+                <a href="https://www.facebook.com/groups/vRNoAF/">Facebook</a>
+              </li>
+              <li>
+                <a href="https://discord.gg/xhhR6NWvhC">Discord</a>
               </li>
             </ul>
           </nav>

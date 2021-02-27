@@ -1,5 +1,5 @@
 import { EditContent } from '../components/EditContent';
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 
 export default function Admin({ cms }) {
   return (

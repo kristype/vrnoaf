@@ -34,9 +34,9 @@ a {
   --accent-color: #3867ad;
   --primary-color: #000000;
   --secondary-backround-color: #ffffff;
-  --background-color: darken(--secondary-backround-color, 10%);
+  --background-color: #e6e6e6;
   --font-color: #333;
-  --header-font-color: darken(--font-color, 10%);
+  --header-font-color: #1a1a1a;
   --font-focus-color: #a6a6a6;
 
   --content-max-width: 1000px;

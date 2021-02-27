@@ -7,8 +7,8 @@ import ReactMarkdown from 'react-markdown';
 import { getGithubPreviewProps, parseMarkdown } from 'next-tinacms-github';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import styles from '../styles/About.module.css';
-import Layout from '../components/Layout';
+import styles from '../styles/about.module.css';
+import Layout from '../components/layout/Layout';
 import { createImageField } from '../commons/imageFieldResolver';
 
 export default function About({ file }) {
@@ -28,7 +28,7 @@ export default function About({ file }) {
 
   return (
     <Layout>
-      <div className={styles.pageLayout}>
+      <div className={styles.pagelayout}>
         <div className={styles.bannerContainer}>
           {data.frontmatter.banner ? (
             <Image

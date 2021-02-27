@@ -1,12 +1,12 @@
-import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
-import glob from "glob";
-import Layout from "../../components/Layout";
+import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
+import glob from 'glob';
+import Layout from '../../components/layout/Layout';
 
 export default function PostTemplate(props) {
   // Render data from `getStaticProps`
   return (
-    <Layout siteTitle={props.siteTitle}>
+    <Layout>
       <article>
         <h1>{props.frontmatter.title}</h1>
         <div>
@@ -34,11 +34,11 @@ export async function getStaticProps({ ...ctx }) {
 
 export async function getStaticPaths() {
   //get all .md files in the posts dir
-  const blogs = glob.sync("content/posts/**/*.md");
+  const blogs = glob.sync('content/posts/**/*.md');
 
   //remove path and extension to leave filename only
   const blogSlugs = blogs.map((file) =>
-    file.split("/")[1].replace(/ /g, "-").slice(0, -3).trim()
+    file.split('/')[1].replace(/ /g, '-').slice(0, -3).trim()
   );
 
   // create paths with `slug` param

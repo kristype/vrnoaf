@@ -9,9 +9,9 @@ import {
 import Head from 'next/head';
 import Image from 'next/image';
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/home.module.css';
 import { createImageField } from '../commons/imageFieldResolver';
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 
 export default function Home({ file }) {
   const formOptions = {
