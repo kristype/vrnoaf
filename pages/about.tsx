@@ -10,15 +10,22 @@ import Image from 'next/image';
 import styles from '../styles/about.module.css';
 import Layout from '../components/layout/Layout';
 import { createImageField } from '../commons/imageFieldResolver';
+import { Head } from '../components/Head';
 
 export default function About({ file }) {
   const [data, form] = useGithubMarkdownForm(file, {
     label: 'About Page',
     fields: [
-      { label: 'Author', name: 'frontmatter.author', component: 'text' },
-      { label: 'Dato', name: 'frontmatter.date', component: 'date' },
       { label: 'Header', name: 'frontmatter.header', component: 'text' },
       createImageField('Banner image', 'frontmatter.banner'),
+      {
+        label: 'Banner center',
+        name: 'frontmatter.bannerCenter',
+        component: 'number',
+        description:
+          'Hvor senteret på bildet skal være. Tall mellom 1 - 100 i prosent. 50 = senter',
+        defaultValue: 50,
+      },
       { label: 'Content', name: 'markdownBody', component: 'markdown' },
     ],
   });
@@ -28,19 +35,22 @@ export default function About({ file }) {
 
   return (
     <Layout>
-      <div className={styles.pagelayout}>
+      <Head title={data.bannerTitle}></Head>
+      <div className={styles.pageLayout}>
         <div className={styles.bannerContainer}>
           {data.frontmatter.banner ? (
             <Image
               priority={true}
               layout="fill"
               objectFit="cover"
-              objectPosition="50% 30%"
+              objectPosition={`50% ${data.frontmatter.bannerCenter}%`}
               src={data.frontmatter.banner}
             ></Image>
           ) : null}
         </div>
-        <h1 className={styles.bannerTitle}>{data.frontmatter.header}</h1>
+        <section className={styles.titleSection}>
+          <h1 className={styles.title}>{data.frontmatter.header}</h1>
+        </section>
         <div className={styles.content}>
           <ReactMarkdown className="markdown">
             {data.markdownBody}

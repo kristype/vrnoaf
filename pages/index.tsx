@@ -6,12 +6,12 @@ import {
   useGithubToolbarPlugins,
 } from 'react-tinacms-github';
 
-import Head from 'next/head';
 import Image from 'next/image';
 
 import styles from '../styles/home.module.css';
 import { createImageField } from '../commons/imageFieldResolver';
 import Layout from '../components/layout/Layout';
+import { Head } from '../components/Head';
 
 export default function Home({ file }) {
   const formOptions = {
@@ -29,10 +29,7 @@ export default function Home({ file }) {
 
   return (
     <Layout>
-      <Head>
-        <title>VRNoAF</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head title="VRNOAF"></Head>
 
       <div className={styles.pageLayout}>
         {data.logo ? (

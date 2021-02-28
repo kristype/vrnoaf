@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './Layout.module.css';
+import styles from './layout.module.css';
 
 export default function Layout({ children }) {
   return (

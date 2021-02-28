@@ -49,8 +49,8 @@ export default class Site extends App {
           onLogout={onLogout}
           error={pageProps.error}
         >
-          <EditContent cms={this.cms} />
           <Component {...pageProps} cms={this.cms} />
+          <EditContent cms={this.cms} />
         </TinacmsGithubProvider>
       </TinaProvider>
     );
