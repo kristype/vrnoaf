@@ -1,5 +1,5 @@
 {
   "title": "VRNoAF",
-  "banner": "/static/images/home.jpg",
-  "logo": "/static/logo_camo.svg"
+  "banner": "/assets/images/home.jpg",
+  "logo": "/assets/logo_camo.svg"
 }
