@@ -11,7 +11,7 @@ export default function Layout({ children }) {
             <Link href="/">
               <a className={styles.logoContainer}>
                 <Image
-                  src="/assets/roundel_notext_camo.svg"
+                  src="/roundel_notext_camo.svg"
                   layout="fixed"
                   height="45"
                   width="45"

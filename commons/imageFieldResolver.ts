@@ -6,8 +6,8 @@ export const createImageField = (label, name): Field & ImageProps => {
     label: label,
     name: name,
     component: 'image',
-    parse: (media) => `/assets/images/${media.filename}`,
-    uploadDir: () => '/public/assets/images/',
+    parse: (media) => `/images/${media.filename}`,
+    uploadDir: () => '/public/images/',
     previewSrc: (fullSrc) => fullSrc,
   };
 };

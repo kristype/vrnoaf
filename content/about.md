@@ -1,5 +1,5 @@
 ---
-banner: /assets/images/about.jpg
+banner: /images/about.jpg
 bannerCenter: 30
 header: Om VRNoAF
 ---
