@@ -1,5 +1,5 @@
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { usePlugin } from 'tinacms';
 import {
   useGithubJsonForm,
@@ -59,7 +59,7 @@ export default function Home({ file }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async function ({
+export const getServerSideProps: GetServerSideProps = async function ({
   preview,
   previewData,
 }) {

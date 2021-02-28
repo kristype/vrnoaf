@@ -1,2 +1,4 @@
+useDotenv: true
+
 vrnoafApp:
   component: '@sls-next/serverless-component@1.19.0-alpha.31'
