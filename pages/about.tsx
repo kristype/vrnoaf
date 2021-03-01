@@ -5,7 +5,7 @@ import {
 } from 'react-tinacms-github';
 import ReactMarkdown from 'react-markdown';
 import { getGithubPreviewProps, parseMarkdown } from 'next-tinacms-github';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import styles from '../styles/about.module.css';
 import Layout from '../components/layout/Layout';
@@ -61,7 +61,7 @@ export default function About({ file }) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async function ({
+export const getStaticProps: GetStaticProps = async function ({
   preview,
   previewData,
 }) {
