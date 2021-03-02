@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
+import Markdown from '../markdown/Markdown';
 import styles from './postCard.module.css';
 
 export default function PostCard({ data, content }) {
@@ -21,10 +21,6 @@ export default function PostCard({ data, content }) {
         <h2 className={styles.title}>{data.title}</h2>
         <dl className={styles.details}>
           <div>
-            <dt className="sr-only">Bruker:</dt>
-            <dd>{data.author}</dd>
-          </div>
-          <div>
             <dt className="sr-only">Dato:</dt>
             <dd>{new Date(data.date).toLocaleDateString()}</dd>
           </div>
@@ -32,7 +28,7 @@ export default function PostCard({ data, content }) {
       </section>
 
       <div className={styles.content}>
-        <ReactMarkdown className="markdown">{content}</ReactMarkdown>
+        <Markdown>{content}</Markdown>
       </div>
     </div>
   );

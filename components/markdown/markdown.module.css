@@ -1,0 +1,22 @@
+.markdown {
+  height: 100%;
+  max-width: var(--text-max-width);
+}
+
+.markdown > * + * {
+  margin-top: 1.5em;
+}
+
+.markdown img {
+  width: 100%;
+  height: auto;
+}
+
+.markdown p {
+  line-height: var(--text-line-height);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}

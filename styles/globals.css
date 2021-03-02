@@ -22,24 +22,6 @@ a {
   margin: 0;
 }
 
-.markdown {
-  height: 100%;
-  width: var(--text-max-width);
-}
-
-.markdown > * + * {
-  margin-top: 1.5em;
-}
-
-.markdown img {
-  width: 100%;
-  height: auto;
-}
-
-.markdown p {
-  line-height: var(--text-line-height);
-}
-
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;

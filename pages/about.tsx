@@ -1,10 +1,10 @@
-import ReactMarkdown from 'react-markdown';
 import matter from 'gray-matter';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import styles from '../styles/about.module.css';
 import Layout from '../components/layout/Layout';
 import { Head } from '../components/Head';
+import Markdown from '../components/markdown/Markdown';
 
 export default function About({ data, content }) {
   return (
@@ -26,7 +26,7 @@ export default function About({ data, content }) {
           <h1 className={styles.title}>{data.header}</h1>
         </section>
         <div className={styles.content}>
-          <ReactMarkdown className="markdown">{content}</ReactMarkdown>
+          <Markdown>{content}</Markdown>
         </div>
       </div>
     </Layout>
