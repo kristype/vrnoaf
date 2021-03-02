@@ -1,37 +1,18 @@
-import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import { GetStaticProps } from 'next';
-import { usePlugin } from 'tinacms';
-import {
-  useGithubJsonForm,
-  useGithubToolbarPlugins,
-} from 'react-tinacms-github';
-
 import Image from 'next/image';
-
+import { glob } from 'glob';
 import styles from '../styles/home.module.css';
-import { createImageField } from '../commons/imageFieldResolver';
 import Layout from '../components/layout/Layout';
 import { Head } from '../components/Head';
+import matter from 'gray-matter';
+import PostCard from '../components/postCard/PostCard';
 
-export default function Home({ file }) {
-  const formOptions = {
-    label: 'Home Page',
-    fields: [
-      { label: 'Header', name: 'title', component: 'text' },
-      createImageField('Logo', 'logo'),
-      createImageField('Banner image', 'banner'),
-    ],
-  };
-
-  const [data, form] = useGithubJsonForm(file, formOptions);
-  usePlugin(form);
-  useGithubToolbarPlugins();
-
+export default function Home({ data, posts }) {
   return (
     <Layout>
-      <Head title="VRNOAF"></Head>
+      <Head title="VRNoAF"></Head>
 
-      <div className={styles.pageLayout}>
+      <div className={styles.layout}>
         {data.logo ? (
           <div className={styles.logoContainer}>
             <Image
@@ -54,31 +35,42 @@ export default function Home({ file }) {
           </div>
         ) : null}
         <h1 className={styles.bannerTitle}>{data.header}</h1>
+        <div className={styles.postsContainer}>
+          {posts.map((p, i) => (
+            <PostCard key={i} data={p.data} content={p.content}></PostCard>
+          ))}
+        </div>
       </div>
     </Layout>
   );
 }
 
-export const getStaticProps: GetStaticProps = async function ({
-  preview,
-  previewData,
-}) {
-  if (preview) {
-    return getGithubPreviewProps({
-      ...previewData,
-      fileRelativePath: 'content/home.json',
-      parse: parseJson,
-    });
-  }
+export const getStaticProps: GetStaticProps = async function () {
+  const posts = glob.sync('content/posts/**/*.md');
+
+  //remove path and extension to leave filename only
+  const postSlugs = posts.map((file) =>
+    file.split('/')[2].replace(/ /g, '-').slice(0, -3).trim()
+  );
+
+  const postsContent = postSlugs.map(
+    async (slug) => await import(`../content/posts/${slug}.md`)
+  );
+
+  const parsed = (await Promise.all(postsContent))
+    .map((imported) => matter(imported.default))
+    .sort((a, b) => {
+      return b.data.date - a.data.date;
+    })
+    .map((p) => ({
+      data: { ...p.data, date: p.data.date.toISOString() },
+      content: p.content,
+    }));
+
   return {
     props: {
-      sourceProvider: null,
-      error: null,
-      preview: false,
-      file: {
-        fileRelativePath: 'content/home.json',
-        data: (await import('../content/home.json')).default,
-      },
+      data: (await import('../content/home.json')).default,
+      posts: parsed,
     },
   };
 };

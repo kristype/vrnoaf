@@ -1,5 +1,5 @@
 .logoWrapper {
-  padding-right: var(--logo-padding-right);
+  padding: 0 var(--logo-padding-right);
 }
 
 .logoContainer {

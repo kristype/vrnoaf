@@ -2,8 +2,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Roboto, sans-serif;
+  font-family: var(--font-stack);
   height: 100%;
+  background: var(--background-color);
+  color: var(--font-color);
 }
 
 body > div {
@@ -35,32 +37,54 @@ a {
 }
 
 .markdown p {
-  line-height: 1.5;
+  line-height: var(--text-line-height);
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
 }
 
 :root {
-  --logo-olive: #565c45;
-  --logo-dark: #2b2b2f;
-  --logo-light: #b9c5a4;
+  --font-stack: 'Roboto', sans-serif;
+  --font-height-text: 16px;
+  --font-height-title: 42px;
 
-  --font-stack: 'Lato', sans-serif;
-  --accent-color: #3867ad;
-  --primary-color: #000000;
+  --text-line-height: 1.5;
+
   --secondary-backround-color: #ffffff;
-  --background-color: #e6e6e6;
+  --background-color: #ffffff;
   --font-color: #333;
   --font-color-on-image: #ffffff;
-  --header-font-color: #1a1a1a;
   --font-focus-color: #a6a6a6;
 
   --content-max-width: 1000px;
-  --media-mobile-max-width: 545px;
-  --logo-padding-right: 40px;
-
-  --navbar-mobile-height: 109px;
-  --navbar-height: 55px;
-
   --text-max-width: 700px;
-  --image-max-width: 750px;
   --header-height: 100px;
+  --banner-height: 450px;
+
+  --spacing: 1rem;
+  --spacing-l: 4rem;
+  --spacing-content: 150px;
 }

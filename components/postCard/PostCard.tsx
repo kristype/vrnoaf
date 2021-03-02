@@ -1,32 +1,38 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import styles from './Post.module.css';
+import styles from './postCard.module.css';
 
-export default function Layout({
-  title,
-  date,
-  author,
-  bannerImage,
-  markdownContent,
-}) {
+export default function PostCard({ data, content }) {
   return (
-    <div className={styles.card}>
+    <div className={styles.postCard}>
       <div className={styles.bannerContainer}>
-        {bannerImage ? (
+        {data.banner ? (
           <Image
             priority={true}
             layout="fill"
             objectFit="cover"
-            objectPosition="50% 50%"
-            src={bannerImage}
+            objectPosition={`50% ${data.bannerCenter}%`}
+            src={data.banner}
           ></Image>
         ) : null}
       </div>
-      <h2 className={styles.bannerTitle}>{title}</h2>
-      <p>{date}</p>
-      <p>{author}</p>
+
+      <section className={styles.titleSection}>
+        <h2 className={styles.title}>{data.title}</h2>
+        <dl className={styles.details}>
+          <div>
+            <dt className="sr-only">Bruker:</dt>
+            <dd>{data.author}</dd>
+          </div>
+          <div>
+            <dt className="sr-only">Dato:</dt>
+            <dd>{new Date(data.date).toLocaleDateString()}</dd>
+          </div>
+        </dl>
+      </section>
+
       <div className={styles.content}>
-        <ReactMarkdown className="markdown">{markdownContent}</ReactMarkdown>
+        <ReactMarkdown className="markdown">{content}</ReactMarkdown>
       </div>
     </div>
   );
