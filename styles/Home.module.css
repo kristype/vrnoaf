@@ -32,5 +32,5 @@
 }
 
 .postsContainer > * {
-  margin: 150px auto 0 auto;
+  margin: var(--spacing-content) auto 0 auto;
 }

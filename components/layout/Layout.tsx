@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './layout.module.css';
+import FacebookIcon from '../FacebookIcon';
+import DiscordIcon from '../DiscordIcon';
+import JetIcon from '../JetIcon';
 
 export default function Layout({ children }) {
   return (
@@ -24,14 +27,21 @@ export default function Layout({ children }) {
             <ul>
               <li>
                 <Link href="/about">
-                  <a>Om oss</a>
+                  <a className={styles.link}>
+                    <JetIcon></JetIcon>
+                    <span>Om oss</span>
+                  </a>
                 </Link>
               </li>
               <li>
-                <a href="https://www.facebook.com/groups/vRNoAF/">Facebook</a>
+                <a href="https://www.facebook.com/groups/vRNoAF/">
+                  <FacebookIcon></FacebookIcon>Facebook
+                </a>
               </li>
               <li>
-                <a href="https://discord.gg/xhhR6NWvhC">Discord</a>
+                <a href="https://discord.gg/xhhR6NWvhC">
+                  <DiscordIcon></DiscordIcon>Discord
+                </a>
               </li>
             </ul>
           </nav>

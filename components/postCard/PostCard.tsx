@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Markdown from '../markdown/Markdown';
 import styles from './postCard.module.css';
+import { Today } from '@material-ui/icons';
 
 export default function PostCard({ data, content }) {
   return (
@@ -22,7 +23,10 @@ export default function PostCard({ data, content }) {
         <dl className={styles.details}>
           <div>
             <dt className="sr-only">Dato:</dt>
-            <dd>{new Date(data.date).toLocaleDateString()}</dd>
+            <dd className={styles.dateValue}>
+              <Today></Today>
+              <span>{new Date(data.date).toLocaleDateString()}</span>
+            </dd>
           </div>
         </dl>
       </section>
