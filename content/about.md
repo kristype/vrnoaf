@@ -4,11 +4,11 @@ bannerCenter: 30
 header: Om VRNoAF
 ---
 
-## vRNoAF – Virtual Royal Norwegian Air Force
+## VRNoAF – Virtual Royal Norwegian Air Force
 
-vRNoAF er en norsk virtuell luftvinge som i hovedsak flyr i Digital Combat Simulations og Falcon BMS. Formålet med gruppen er å ha en felles arena for hygge og moro med en fantastisk hobby som flysimulatorer er for oss som er flyinteresserte.
+VRNoAF er en norsk virtuell luftvinge som i hovedsak flyr i Digital Combat Simulations, Microsoft Flight Simulator og Falcon BMS. Formålet med gruppen er å ha en felles arena for hygge og moro med en fantastisk hobby som flysimulatorer er for oss som er flyinteresserte.
 
-Selv om vRNoAF er en arena for å ha det morsomt sammen med andre flyinteresserte, synes vi det er spennende å utføre mer seriøse missions og oppdrag sammen. Flere av medlemmene i gruppen lager egne multiplayer missions som vi flyr sammen. Gruppen består av folk med forskjellige erfaringer fra flysimulatorer. Alle er velkomne hos oss.
+Selv om VRNoAF er en arena for å ha det morsomt sammen med andre flyinteresserte, synes vi det er spennende å utføre mer seriøse missions og oppdrag sammen. Flere av medlemmene i gruppen lager egne multiplayer missions som vi flyr sammen. Gruppen består av folk med forskjellige erfaringer fra flysimulatorer. Alle er velkomne hos oss.
 
 ## DCS World
 
@@ -32,8 +32,6 @@ Hvis du er uerfaren med flysimulatorer er det ingen problem å bli med i denne g
 
 ## Fly med oss
 
-Hvis du synes dette høres spennende og moro ut, er det bare å registrere deg på vårt forum eller joine vår facebook gruppe. Vi har også en egen Teamspeak server som vi bruker når vi flyr sammen eller for en hyggelig prat.
+Hvis du synes dette høres spennende og moro ut, er det bare å joine vår facebook gruppe. Vi har også en Discord server som vi bruker når vi flyr sammen eller for en hyggelig prat.
 
 Alle er hjertelig velkomne hos oss.
-
-Vi spiller FalconBMS, DCS og MSFS

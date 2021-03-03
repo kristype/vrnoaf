@@ -10,4 +10,4 @@ date: 2016-10-21
 
 ![4 F16 fly som tar av fra rullebanen](/images/FalconBMS/F16_Group_TakeOff.jpg 'Group take off')
 
-![F16 cockpit med skjerm som søker etter laser](/images/FalconBMS/F16_LTRCK.jpg 'Falcon BMS Formation')
+![F16 cockpit med skjerm som søker etter laser](/images/FalconBMS/F16_LTRCK.jpg 'Merking av targets med laser')
