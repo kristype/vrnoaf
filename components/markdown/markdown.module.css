@@ -16,8 +16,3 @@
 .markdown p {
   line-height: var(--text-line-height);
 }
-
-.image {
-  width: 100%;
-  height: auto;
-}

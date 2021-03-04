@@ -2,9 +2,9 @@ import matter from 'gray-matter';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import styles from '../styles/about.module.css';
-import Layout from '../components/layout/Layout';
-import { Head } from '../components/Head';
-import Markdown from '../components/markdown/Markdown';
+import Layout from '../components/layout/layout';
+import { Head } from '../components/head';
+import Markdown from '../components/markdown/markdown';
 
 export default function About({ data, content }) {
   return (

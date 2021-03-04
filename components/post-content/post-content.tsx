@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import Markdown from '../markdown/Markdown';
-import styles from './postCard.module.css';
+import Markdown from '../markdown/markdown';
+import styles from './post-content.module.css';
 import { Today } from '@material-ui/icons';
 
-export default function PostCard({ data, content }) {
+export default function PostContent({ data, content, showDetails = true }) {
   return (
     <div className={styles.postCard}>
       <div className={styles.bannerContainer}>
@@ -20,15 +20,17 @@ export default function PostCard({ data, content }) {
 
       <section className={styles.titleSection}>
         <h2 className={styles.title}>{data.title}</h2>
-        <dl className={styles.details}>
-          <div>
-            <dt className="sr-only">Dato:</dt>
-            <dd className={styles.dateValue}>
-              <Today></Today>
-              <span>{new Date(data.date).toLocaleDateString()}</span>
-            </dd>
-          </div>
-        </dl>
+        {showDetails && (
+          <dl className={styles.details}>
+            <div>
+              <dt className="sr-only">Dato:</dt>
+              <dd className={styles.dateValue}>
+                <Today></Today>
+                <span>{new Date(data.date).toLocaleDateString()}</span>
+              </dd>
+            </div>
+          </dl>
+        )}
       </section>
 
       <div className={styles.content}>

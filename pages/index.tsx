@@ -2,10 +2,10 @@ import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import { glob } from 'glob';
 import styles from '../styles/home.module.css';
-import Layout from '../components/layout/Layout';
-import { Head } from '../components/Head';
+import Layout from '../components/layout/layout';
+import { Head } from '../components/head';
 import matter from 'gray-matter';
-import PostCard from '../components/postCard/PostCard';
+import PostContent from '../components/post-content/post-content';
 
 export default function Home({ data, posts }) {
   return (
@@ -37,7 +37,11 @@ export default function Home({ data, posts }) {
         <h1 className={styles.bannerTitle}>{data.header}</h1>
         <div className={styles.postsContainer}>
           {posts.map((p, i) => (
-            <PostCard key={i} data={p.data} content={p.content}></PostCard>
+            <PostContent
+              key={i}
+              data={p.data}
+              content={p.content}
+            ></PostContent>
           ))}
         </div>
       </div>

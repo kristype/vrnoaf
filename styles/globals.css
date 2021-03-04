@@ -55,18 +55,18 @@ a {
 
   --text-line-height: 1.5;
 
-  --secondary-backround-color: #ffffff;
-  --background-color: #ffffff;
-  --font-color: #333;
-  --font-color-on-image: #ffffff;
-  --font-focus-color: #a6a6a6;
+  --background-color: #fff;
+  --font-color: #000;
+  --content-background-color: #fff;
+  --content-font-color: #333;
+  --font-color-on-image: #fff;
 
   --content-max-width: 1000px;
   --text-max-width: 700px;
   --header-height: 100px;
-  --banner-height: 450px;
+  --banner-height: 350px;
 
   --spacing: 1rem;
   --spacing-l: 4rem;
-  --spacing-content: 75px;
+  --spacing-content: 100px;
 }
