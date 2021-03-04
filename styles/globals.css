@@ -55,10 +55,12 @@ a {
 
   --text-line-height: 1.5;
 
+  --active-color: blue;
   --background-color: #fff;
+  --secondary-background-color: #ddd;
   --font-color: #000;
   --content-background-color: #fff;
-  --content-font-color: #333;
+  --content-font-color: #000;
   --font-color-on-image: #fff;
 
   --content-max-width: 1000px;

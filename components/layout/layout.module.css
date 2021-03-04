@@ -22,6 +22,7 @@
   width: 100%;
   height: var(--header-height);
   z-index: 100;
+  border-bottom: var(--secondary-background-color) solid 2px;
 }
 @media (max-width: 450px) {
   .siteHeader {
