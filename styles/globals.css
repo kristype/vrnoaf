@@ -50,8 +50,9 @@ a {
 
 :root {
   --font-stack: 'Roboto', sans-serif;
-  --font-height-text: 16px;
-  --font-height-title: 42px;
+  --font-size-text: 16px;
+  --font-size-detail: 12px;
+  --font-size-title: 24px;
 
   --text-line-height: 1.5;
 
@@ -63,12 +64,29 @@ a {
   --content-font-color: #000;
   --font-color-on-image: #fff;
 
-  --content-max-width: 1000px;
-  --text-max-width: 700px;
-  --header-height: 100px;
-  --banner-height: 350px;
+  --content-max-width: 1024px;
+  --text-max-width: 732px;
+  --header-height: 54px;
+  --banner-height: 200px;
 
   --spacing: 1rem;
-  --spacing-l: 4rem;
-  --spacing-content: 100px;
+  --spacing-l: 2rem;
+  --spacing-content: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --banner-height: 250px;
+    --font-size-title: 42px;
+    --font-size-detail: 16px;
+    --header-height: 100px;
+    --spacing-content: 100px;
+    --spacing-l: 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --banner-height: 350px;
+  }
 }

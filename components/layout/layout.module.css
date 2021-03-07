@@ -1,3 +1,29 @@
+.header {
+  background: var(--background-color);
+  color: var(--font-color);
+  position: static;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  border-bottom: var(--secondary-background-color) solid 2px;
+  padding: 0 var(--spacing);
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    position: fixed;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  height: 100%;
+  max-width: var(--content-max-width);
+  margin: 0px auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .logoContainer {
   display: flex;
   height: 54px;
@@ -15,37 +41,10 @@
   margin: auto 0px;
 }
 
-.header {
-  background: var(--background-color);
-  color: var(--font-color);
-  position: fixed;
-  width: 100%;
-  height: var(--header-height);
-  z-index: 100;
-  border-bottom: var(--secondary-background-color) solid 2px;
-}
-@media (max-width: 450px) {
-  .siteHeader {
-    position: static;
-  }
+.siteNav {
+  position: relative;
 }
 
-.navContainer {
-  display: flex;
-  height: 100%;
-  max-width: var(--content-max-width);
-  margin: 0px auto;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.siteNav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
 .siteNav a {
   font-size: 16px;
   padding: 18px;
@@ -53,11 +52,43 @@
   align-items: center;
   text-decoration: none;
   gap: 0.25rem;
+  width: 100%;
 }
-/* .siteNav a:hover,
-.siteNav a:active {
-  background-color: var(--backround-color); // TODO: Change
-} */
+
+.navMenu {
+  position: absolute;
+  right: calc(0rem - var(--spacing));
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+}
+
+.navMenuHidden {
+  display: none;
+}
+
+.menuButton {
+  background: transparent;
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .navMenu {
+    position: static;
+    flex-direction: row;
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .navMenuHidden {
+    display: flex;
+  }
+}
 
 .shell {
   display: flex;
@@ -69,7 +100,12 @@
 .shellContent {
   flex: 1 0 auto;
   min-height: 1px;
-  padding-top: var(--header-height);
+}
+
+@media screen and (min-width: 768px) {
+  .shellContent {
+    padding-top: var(--header-height);
+  }
 }
 
 .footer {
