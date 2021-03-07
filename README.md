@@ -34,4 +34,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on AWS
 
+Download .serverless setup from S3 bucket `aws s3 cp s3://vrnoaf-serverless/.serverless .\.serverless --recursive`
 Run `serverless` to deploy the site.
+Then update the .serverless files to S3 bucket `aws s3 cp .\.serverless s3://vrnoaf-serverless/.serverless --recursive`

@@ -1,2 +1,4 @@
 vrnoafApp:
   component: '@sls-next/serverless-component@1.19.0-alpha.31'
+  inputs:
+    domain: 'vrnoaf.no' # sub-domain defaults to www
