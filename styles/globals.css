@@ -76,7 +76,7 @@ a {
 
 @media screen and (min-width: 768px) {
   :root {
-    --banner-height: 250px;
+    --banner-height: 300px;
     --font-size-title: 42px;
     --font-size-detail: 16px;
     --header-height: 100px;
@@ -87,6 +87,6 @@ a {
 
 @media screen and (min-width: 1024px) {
   :root {
-    --banner-height: 350px;
+    --banner-height: 450px;
   }
 }
