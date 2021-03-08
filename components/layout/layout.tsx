@@ -19,7 +19,7 @@ export default function Layout({ children }) {
             <a className={styles.logoContainer}>
               <Image
                 src="/roundel_notext_camo.svg"
-                layout="fixed"
+                layout="intrinsic"
                 height="45"
                 width="45"
               ></Image>

@@ -19,6 +19,7 @@ export default function Home({ data, posts }) {
               priority={true}
               layout="fill"
               objectFit="contain"
+              objectPosition="top"
               src={data.logo}
             ></Image>
           </div>

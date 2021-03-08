@@ -18,7 +18,7 @@ export default function MarkdownImage(props: MarkdownImageProps) {
         >
           <Image
             src={props.src}
-            layout="responsive"
+            layout="intrinsic"
             height={400}
             width={700}
             objectPosition="center center"
