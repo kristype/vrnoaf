@@ -2,8 +2,8 @@
   display: grid;
   grid-template-rows: auto auto auto;
   max-width: var(--content-max-width);
-  background: var(--content-background-color);
-  color: var(--content-font-color);
+  background: var(--background-color);
+  color: var(--font-color);
 }
 
 .bannerContainer {

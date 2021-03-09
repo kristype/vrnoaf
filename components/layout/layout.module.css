@@ -45,14 +45,26 @@
   position: relative;
 }
 
-.siteNav a {
-  font-size: 16px;
-  padding: 18px;
+.link {
+  padding: var(--spacing);
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   gap: 0.25rem;
   width: 100%;
+  border-bottom: transparent 2px solid;
+}
+
+.link:focus-visible,
+.link:hover {
+  color: var(--focus-color);
+  font-weight: 500;
+}
+
+.linkActive {
+  font-weight: 500;
+  color: var(--active-color);
+  border-bottom-color: var(--active-color);
 }
 
 .navMenu {

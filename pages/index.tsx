@@ -21,6 +21,7 @@ export default function Home({ data, posts }) {
               objectFit="contain"
               objectPosition="top"
               src={data.logo}
+              alt="VRNoAF logo stor"
             ></Image>
           </div>
         ) : null}

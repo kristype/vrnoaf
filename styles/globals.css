@@ -62,13 +62,13 @@ a {
 
   --text-line-height: 1.5;
 
-  --active-color: var(--ebony);
+  --focus-color: #2c2643;
+  --active-color: #2c2643;
+
   --background-color: var(--white);
   --secondary-background-color: var(--gray);
-  --content-background-color: var(--white);
 
   --font-color: var(--black);
-  --content-font-color: var(--black);
   --font-color-on-image: var(--white);
 
   --content-max-width: 1024px;

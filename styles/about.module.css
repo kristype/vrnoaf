@@ -1,8 +1,8 @@
 .pageLayout {
   display: grid;
   grid-template-rows: auto auto auto;
-  background: var(--content-background-color);
-  color: var(--content-font-color);
+  background: var(--background-color);
+  color: var(--font-color);
   margin: 0 auto;
   width: 100%;
   max-width: var(--content-max-width);
