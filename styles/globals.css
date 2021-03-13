@@ -54,6 +54,7 @@ a {
   --black: #2b2b2f;
   --green: #b9c5a4;
   --ebony: #565c45;
+  --purple: #2c2643;
 
   --font-stack: 'Roboto', sans-serif;
   --font-size-text: 16px;
@@ -62,8 +63,8 @@ a {
 
   --text-line-height: 1.5;
 
-  --focus-color: #2c2643;
-  --active-color: #2c2643;
+  --focus-color: var(--purple);
+  --active-color: var(--purple);
 
   --background-color: var(--white);
   --secondary-background-color: var(--gray);
