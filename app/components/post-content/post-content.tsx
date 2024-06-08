@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import Markdown from '../markdown/markdown';
-import styles from './post-content.module.css';
-import { Today } from '@material-ui/icons';
+import Image from "next/image";
+import Markdown from "../markdown/markdown";
+import styles from "./post-content.module.css";
+import Today from "@mui/icons-material/today";
 
 export default function PostContent({ data, content, showDetails = true }) {
   return (
@@ -14,6 +14,7 @@ export default function PostContent({ data, content, showDetails = true }) {
             objectFit="cover"
             objectPosition={`50% ${data.bannerCenter}%`}
             src={data.banner}
+            alt="banner image"
           ></Image>
         ) : null}
       </div>

@@ -1,12 +1,20 @@
-import matter from 'gray-matter';
-import { GetStaticProps } from 'next';
-import Image from 'next/image';
-import styles from '../styles/about.module.css';
-import Layout from '../components/layout/layout';
-import { Head } from '../components/head';
-import Markdown from '../components/markdown/markdown';
+import matter from "gray-matter";
+import Image from "next/image";
+import styles from "../styles/about.module.css";
+import Layout from "../components/layout/layout";
+import { Head } from "../components/Head";
+import Markdown from "../components/markdown/markdown";
+import { promises as fs } from "fs";
 
-export default function About({ data, content }) {
+export default async function About() {
+  const file = await fs.readFile(
+    process.cwd() + "/app/content/about.md",
+    "utf8"
+  );
+  const result = matter(file);
+  const data = result.data;
+  const content = result.content;
+
   return (
     <Layout>
       <Head title={data.bannerTitle}></Head>
@@ -19,6 +27,7 @@ export default function About({ data, content }) {
               objectFit="cover"
               objectPosition={`50% ${data.bannerCenter}%`}
               src={data.banner}
+              alt="banner image"
             ></Image>
           ) : null}
         </div>
@@ -32,13 +41,3 @@ export default function About({ data, content }) {
     </Layout>
   );
 }
-
-export const getStaticProps: GetStaticProps = async function () {
-  var file = matter((await import('../content/about.md')).default);
-  return {
-    props: {
-      data: file.data,
-      content: file.content,
-    },
-  };
-};

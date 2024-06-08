@@ -1,5 +1,5 @@
-import styles from './markdown-image.module.css';
-import Image from 'next/image';
+import styles from "./markdown-image.module.css";
+import Image from "next/image";
 
 export interface MarkdownImageProps {
   src: string;
@@ -8,7 +8,7 @@ export interface MarkdownImageProps {
 }
 
 export default function MarkdownImage(props: MarkdownImageProps) {
-  if (props.src.startsWith('/'))
+  if (props.src.startsWith("/"))
     return (
       <Figure title={props.title}>
         <a
@@ -32,7 +32,7 @@ export default function MarkdownImage(props: MarkdownImageProps) {
   else
     return (
       <Figure title={props.title}>
-        <img className={styles.image} {...props}></img>{' '}
+        <img className={styles.image} {...props}></img>{" "}
       </Figure>
     );
 }
