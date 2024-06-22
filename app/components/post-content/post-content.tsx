@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Markdown from "../markdown/markdown";
 import styles from "./post-content.module.css";
-import Today from "@mui/icons-material/today";
+import { Today } from "@mui/icons-material";
 
 export default function PostContent({ data, content, showDetails = true }) {
   return (
