@@ -2,7 +2,6 @@ import matter from "gray-matter";
 import Image from "next/image";
 import styles from "../styles/about.module.css";
 import Layout from "../components/layout/layout";
-import { Head } from "../components/Head";
 import Markdown from "../components/markdown/markdown";
 import { promises as fs } from "fs";
 
@@ -17,17 +16,19 @@ export default async function About() {
 
   return (
     <Layout>
-      <Head title={data.bannerTitle}></Head>
       <div className={styles.pageLayout}>
         <div className={styles.bannerContainer}>
           {data.banner ? (
             <Image
               priority={true}
-              layout="fill"
-              objectFit="cover"
               objectPosition={`50% ${data.bannerCenter}%`}
               src={data.banner}
               alt="banner image"
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover",
+              }}
             ></Image>
           ) : null}
         </div>

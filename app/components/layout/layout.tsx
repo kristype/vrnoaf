@@ -7,17 +7,14 @@ import FacebookIcon from "../facebook-icon";
 import DiscordIcon from "../discord-icon";
 import JetIcon from "../jet-icon";
 import { Menu } from "@mui/icons-material";
-import { RefObject, useEffect, useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import classNames from "classnames";
+import { usePathname } from "next/navigation";
 
 export default function Layout({ children }) {
   const [expanded, setExpanded] = useState(false);
 
-  const [currentLocation, setCurrentLocation] = useState("");
-
-  useEffect(() => {
-    setCurrentLocation((window as Window)?.location?.href);
-  });
+  const pathname = usePathname();
 
   const navRef: RefObject<HTMLElement> = useRef(null);
   return (
@@ -27,11 +24,13 @@ export default function Layout({ children }) {
           <Link href="/" className={styles.logoContainer}>
             <Image
               src="/roundel_notext_camo.svg"
-              layout="intrinsic"
               height="45"
               width="45"
               alt="VRNoAF logo"
-            ></Image>
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }}></Image>
             <p className={styles.logoText}>VRNoAF</p>
           </Link>
           <nav
@@ -60,7 +59,7 @@ export default function Layout({ children }) {
                 <Link
                   href="/about"
                   className={classNames(styles.link, {
-                    [styles.linkActive]: currentLocation?.endsWith("/about"),
+                    [styles.linkActive]: pathname?.endsWith("/about"),
                   })}
                 >
                   <JetIcon></JetIcon>

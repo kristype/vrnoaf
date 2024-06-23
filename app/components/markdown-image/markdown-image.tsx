@@ -18,14 +18,16 @@ export default function MarkdownImage(props: MarkdownImageProps) {
         >
           <Image
             src={props.src}
-            layout="intrinsic"
             height={400}
             width={700}
-            objectPosition="center center"
-            objectFit="cover"
             title={props.title}
             alt={props.alt}
-          ></Image>
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover",
+              objectPosition: "center center"
+            }}></Image>
         </a>
       </Figure>
     );

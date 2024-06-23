@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "./styles/home.module.css";
 import Layout from "./components/layout/layout";
-import { Head } from "./components/Head";
 
 import { promises as fs } from "fs";
 
@@ -14,18 +13,19 @@ export default async function Home() {
 
   return (
     <Layout>
-      <Head title="VRNoAF"></Head>
-
       <div className={styles.layout}>
         {data.logo ? (
           <div className={styles.logoContainer}>
             <Image
               priority={true}
-              layout="fill"
-              objectFit="contain"
-              objectPosition="top"
               src={data.logo}
               alt="VRNoAF logo stor"
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "contain",
+                objectPosition: "top",
+              }}
             ></Image>
           </div>
         ) : null}
@@ -33,11 +33,14 @@ export default async function Home() {
           <div className={styles.bannerContainer}>
             <Image
               priority={true}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="50% 50%"
               src={data.banner}
               alt="banner image"
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover",
+                objectPosition: "50% 50%",
+              }}
             ></Image>
           </div>
         ) : null}

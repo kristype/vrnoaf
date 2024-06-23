@@ -10,12 +10,14 @@ export default function PostContent({ data, content, showDetails = true }) {
         {data.banner ? (
           <Image
             priority={true}
-            layout="fill"
-            objectFit="cover"
             objectPosition={`50% ${data.bannerCenter}%`}
             src={data.banner}
             alt="banner image"
-          ></Image>
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }}></Image>
         ) : null}
       </div>
 
